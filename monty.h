@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define  _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -51,6 +52,10 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+void addqueue(stack_t **head, int n);
+void addnode(stack_t **head, int n);
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
+void queue_f(stack_t **head, unsigned int count);
 void push(stack_t **head, unsigned int count);
 void pall(stack_t **head, unsigned int count);
 void pint(stack_t **head, unsigned int count);
